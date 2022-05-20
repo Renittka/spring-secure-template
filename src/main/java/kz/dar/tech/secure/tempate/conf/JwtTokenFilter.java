@@ -52,7 +52,7 @@ public class JwtTokenFilter extends GenericFilterBean {
                     role.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
             SecurityContextHolder.getContext().setAuthentication(auth);
 
-        } else if (token!= null && oktaTokenValidation(token)) {
+        } else if (token!= null) {
             UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken("OKTA User", null,
                     role.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
             SecurityContextHolder.getContext().setAuthentication(auth);
